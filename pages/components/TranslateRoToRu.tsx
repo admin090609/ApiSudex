@@ -5,34 +5,179 @@ import { useRouter } from "next/router";
 import translateData from "../translate.json"; // Update the path as needed
 import categoriesData from "../categories.json";
 import Product from "../product";
-import { useLanguage } from "./LanguageContext";
+import useLanguage from "../../public/LanguageContext";
 
 interface Product {
   id: number;
   categoryId: number;
-  image?: string;
+  image?: string | undefined;
+  image1?: string | undefined;
+  name?: string;
+  descriere?: string;
   translations: {
     ro: {
+      image?: string | undefined;
+      image1?: string | undefined;
       name: string;
-      pret1: string;
-      descriere: string;
-      reducere?: string;
-      opt1?: string;
-      opt2?: string;
-      opt3?: string;
-      pret2?: string;
-      pret3?: string;
+      pret1?: string;
+      btn1?: {
+        image?: string | undefined;
+        image1?: string | undefined;
+        name: string;
+        opt1?: string;
+        opt2?: string;
+        opt3?: string;
+        pret1?: string;
+        pret2?: string;
+        pret3?: string;
+        descriere?: string;
+        reducere?: string;
+      };
+      btn2?: {
+        image?: string | undefined;
+        image1?: string | undefined;
+        name: string;
+        opt1?: string;
+        opt2?: string;
+        opt3?: string;
+        pret1?: string;
+        pret2?: string;
+        pret3?: string;
+        descriere?: string;
+        reducere?: string;
+      };
+      btn3?: {
+        image?: string | undefined;
+        image1?: string | undefined;
+        name: string;
+        opt1?: string;
+        opt2?: string;
+        opt3?: string;
+        pret1?: string;
+        pret2?: string;
+        pret3?: string;
+        descriere?: string;
+        reducere?: string;
+        button1?: {
+          image?: string | undefined;
+          image1?: string | undefined;
+          name?: string;
+          pret1?: string;
+          reducere?: string;
+          descriere?: string;
+        };
+        button2?: {
+          image?: string | undefined;
+          image1?: string | undefined;
+          name?: string;
+          pret1?: string;
+          reducere?: string;
+          descriere?: string;
+        };
+        button3?: {
+          image?: string | undefined;
+          image1?: string | undefined;
+          name?: string;
+          pret1?: string;
+          reducere?: string;
+          descriere?: string;
+        };
+      };
+      btn4?: {
+        image?: string | undefined;
+        image1?: string | undefined;
+        name: string;
+        opt1?: string;
+        opt2?: string;
+        opt3?: string;
+        pret1?: string;
+        pret2?: string;
+        pret3?: string;
+        descriere?: string;
+        reducere?: string;
+      };
     };
     ru: {
       name: string;
-      pret1: string;
-      descriere: string;
-      reducere?: string;
-      opt1?: string;
-      opt2?: string;
-      opt3?: string;
-      pret2?: string;
-      pret3?: string;
+      pret1?: string;
+      image?: string | undefined;
+      image1?: string | undefined;
+      btn1?: {
+        image?: string | undefined;
+        image1?: string | undefined;
+        name: string;
+        opt1?: string;
+        opt2?: string;
+        opt3?: string;
+        pret1?: string;
+        pret2?: string;
+        pret3?: string;
+        descriere?: string;
+        reducere?: string;
+      };
+      btn2?: {
+        image?: string | undefined;
+        image1?: string | undefined;
+        name: string;
+        opt1?: string;
+        opt2?: string;
+        opt3?: string;
+        pret1?: string;
+        pret2?: string;
+        pret3?: string;
+        descriere?: string;
+        reducere?: string;
+      };
+      btn3?: {
+        image?: string | undefined;
+        image1?: string | undefined;
+        name: string;
+        opt1?: string;
+        opt2?: string;
+        opt3?: string;
+        pret1?: string;
+        pret2?: string;
+        pret3?: string;
+        descriere?: string;
+        reducere?: string;
+        button1?: {
+          image?: string | undefined;
+          image1?: string | undefined;
+          name?: string;
+          pret1?: string;
+          reducere?: string;
+          descriere?: string;
+        };
+        button2?: {
+          image?: string | undefined;
+          image1?: string | undefined;
+          name?: string;
+          pret1?: string;
+          reducere?: string;
+          descriere?: string;
+        };
+        button3?: {
+          image?: string | undefined;
+          image1?: string | undefined;
+          name?: string;
+          pret1?: string;
+          reducere?: string;
+          descriere?: string;
+        };
+      };
+      btn4?: {
+        image?: string | undefined;
+        image1?: string | undefined;
+        name: string;
+        opt1?: string;
+        opt2?: string;
+        opt3?: string;
+        pret1?: string;
+        pret2?: string;
+        pret3?: string;
+        descriere?: string;
+        reducere?: string;
+      };
     };
   };
 }

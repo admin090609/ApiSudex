@@ -2,40 +2,185 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import drop from "./images/drop.png";
-import translateData from "./translate.json";
 import Footer from "./components/Footer";
-import { useLanguage } from "./components/LanguageContext";
+import useLanguage from "../public/LanguageContext";
 import {
   getTranslatedContent,
   getTranslatedArray,
 } from "./components/TranslateRoToRu";
+import Head from "next/head";
 
 interface Product {
   id: number;
   categoryId: number;
   image?: string;
+  image1?: string | undefined;
+  name?: string;
+  descriere?: string;
   translations: {
     ro: {
+      image?: string;
+      image1?: string | undefined;
       name: string;
-      pret1: string;
-      descriere: string;
-      reducere?: string;
-      opt1?: string;
-      opt2?: string;
-      opt3?: string;
-      pret2?: string;
-      pret3?: string;
+      pret1?: string;
+      btn1?: {
+        image?: string | undefined;
+        image1?: string | undefined;
+        name: string;
+        opt1?: string;
+        opt2?: string;
+        opt3?: string;
+        pret1?: string;
+        pret2?: string;
+        pret3?: string;
+        descriere?: string;
+        reducere?: string;
+      };
+      btn2?: {
+        image?: string | undefined;
+        image1?: string | undefined;
+        name: string;
+        opt1?: string;
+        opt2?: string;
+        opt3?: string;
+        pret1?: string;
+        pret2?: string;
+        pret3?: string;
+        descriere?: string;
+        reducere?: string;
+      };
+      btn3?: {
+        image?: string | undefined;
+        image1?: string | undefined;
+        name: string;
+        opt1?: string;
+        opt2?: string;
+        opt3?: string;
+        pret1?: string;
+        pret2?: string;
+        pret3?: string;
+        descriere?: string;
+        reducere?: string;
+        button1?: {
+          image?: string | undefined;
+          image1?: string | undefined;
+          name?: string;
+          pret1?: string;
+          reducere?: string;
+          descriere?: string;
+        };
+        button2?: {
+          image?: string | undefined;
+          image1?: string | undefined;
+          name?: string;
+          pret1?: string;
+          reducere?: string;
+          descriere?: string;
+        };
+        button3?: {
+          image?: string | undefined;
+          image1?: string | undefined;
+          name?: string;
+          pret1?: string;
+          reducere?: string;
+          descriere?: string;
+        };
+      };
+      btn4?: {
+        image?: string | undefined;
+        image1?: string | undefined;
+        name: string;
+        opt1?: string;
+        opt2?: string;
+        opt3?: string;
+        pret1?: string;
+        pret2?: string;
+        pret3?: string;
+        descriere?: string;
+        reducere?: string;
+      };
     };
     ru: {
       name: string;
-      pret1: string;
-      descriere: string;
-      reducere?: string;
-      opt1?: string;
-      opt2?: string;
-      opt3?: string;
-      pret2?: string;
-      pret3?: string;
+      pret1?: string;
+      image?: string | undefined;
+      image1?: string | undefined;
+      btn1?: {
+        image?: string | undefined;
+        image1?: string | undefined;
+        name: string;
+        opt1?: string;
+        opt2?: string;
+        opt3?: string;
+        pret1?: string;
+        pret2?: string;
+        pret3?: string;
+        descriere?: string;
+        reducere?: string;
+      };
+      btn2?: {
+        image?: string | undefined;
+        image1?: string | undefined;
+        name: string;
+        opt1?: string;
+        opt2?: string;
+        opt3?: string;
+        pret1?: string;
+        pret2?: string;
+        pret3?: string;
+        descriere?: string;
+        reducere?: string;
+      };
+      btn3?: {
+        image?: string | undefined;
+        image1?: string | undefined;
+        name: string;
+        opt1?: string;
+        opt2?: string;
+        opt3?: string;
+        pret1?: string;
+        pret2?: string;
+        pret3?: string;
+        descriere?: string;
+        reducere?: string;
+        button1?: {
+          image?: string | undefined;
+          image1?: string | undefined;
+          name?: string;
+          pret1?: string;
+          reducere?: string;
+          descriere?: string;
+        };
+        button2?: {
+          image?: string | undefined;
+          image1?: string | undefined;
+          name?: string;
+          pret1?: string;
+          reducere?: string;
+          descriere?: string;
+        };
+        button3?: {
+          image?: string | undefined;
+          image1?: string | undefined;
+          name?: string;
+          pret1?: string;
+          reducere?: string;
+          descriere?: string;
+        };
+      };
+      btn4?: {
+        image?: string | undefined;
+        image1?: string | undefined;
+        name: string;
+        opt1?: string;
+        opt2?: string;
+        opt3?: string;
+        pret1?: string;
+        pret2?: string;
+        pret3?: string;
+        descriere?: string;
+        reducere?: string;
+      };
     };
   };
 }
@@ -52,6 +197,13 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Acasă - ApiSudex</title>
+        <meta
+          name="description"
+          content="Descoperă universul fascinant al apiculturii cu Apisudex - destinația ta principală pentru cunoaștere și echipamente apicole. Explorează o gamă diversificată de informații despre apicultură, tehnici de îngrijire a stupilor și colectare a mierii, împărtășite de experți în domeniu. Găsește cele mai inovatoare și eficiente soluții pentru gestionarea stupilor și producția de miere de calitate. Oferim o varietate de stupi și rame de cea mai bună calitate, adaptate nevoilor fiecărui apicultor, de la cei începători până la cei avansați. "
+        />
+      </Head>
       <div className="flex flex-col mt-12 px-2 sm:mt-20 items-center text-center">
         <div className="text-4xl md:text-7xl font-bold mb-4 md:mb-6 font-volkron bg-cover bg-clip-text text-transparent bg-gradient-to-r from-dark_purple via-indigo to-dark_purple ">
           {content.Title1}
@@ -84,31 +236,30 @@ export default function Home() {
           <Link
             href={`/product?id=${product.id}`}
             key={product.id}
-            className="mb-6 md:mb-0 md:ml-8 flex flex-col items-center rounded-md p-2 md:p-5 w-[60%] md:w-[20%] h-[250px] md:h-[290px] bg-slate-100 hover:scale-105 transition-transform duration-800 ease-in hover:bg-opacity-90"
+            className="mb-6 md:mb-0 md:ml-8 flex flex-col items-center rounded-md p-2 md:p-5 w-[60%] md:w-[20%] h-[250px] md:h-[290px] lg:h-[full] bg-slate-100 hover:scale-105 transition-transform duration-800 ease-in hover:bg-opacity-90"
           >
-            <div className="h-[60%] w-full mb-2 md:mb-4 flex justify-center items-center">
+            <div className=" h-[78%] md:h-[70%] w-full mb-4 md:mb-4 flex justify-center items-center">
               <Image
-                src={product.image || "/default-image.jpg"}
-                alt={product.name}
+                src={product.translations.image || "default.png"}
+                alt={product.translations.name}
                 width={150}
                 height={150}
+                decoding="sync"
               />
             </div>
-            <div className="font-bold text-base md:text-lg text-slate-600 mb-2 md:mb-3 font-nunito">
-              {product.translations.reducere ? (
-                <div className="flex flex-col items-center">
-                  <p className="line-through text-gray-400 text-sm md:text-base">
-                    {product.translations.pret1}
-                  </p>
-                  <p className="text-sm md:text-base">
-                    {product.translations.reducere}
-                  </p>
-                </div>
-              ) : (
+            <div className="font-bold text-base md:text-lg text-slate-600 md:mb-3 font-nunito">
+              <div className="flex flex-col items-center">
                 <p className="text-sm md:text-base">
-                  {product.translations.pret1}
+                  {product.translations?.pret1 ||
+                    product.translations?.btn1?.pret1 ||
+                    product.translations?.btn2?.pret1 ||
+                    product.translations?.btn3?.pret1 ||
+                    product.translations?.btn3?.button1?.pret1 ||
+                    product.translations?.btn3?.button2?.pret1 ||
+                    product.translations?.btn3?.button3?.pret1 ||
+                    product.translations?.btn4?.pret1}
                 </p>
-              )}
+              </div>
             </div>
             <div className="font-semibold text-slate-600 text-sm md:text-base font-nunito">
               <p className="leading-5 text-center">

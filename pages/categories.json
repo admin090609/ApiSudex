@@ -4,10 +4,10 @@
     "img": "/images/stup_categ.png",
     "translations": {
       "ro": {
-        "denumire": "Stupuri"
+        "denumire": "Stupi"
       },
       "ru": {
-        "denumire": "Ульи"
+        "denumire": "Улья"
       }
     }
   },
@@ -25,13 +25,13 @@
   },
   {
     "id": 3,
-    "img": "/images/sale.png",
+    "img": "/images/rame.png",
     "translations": {
       "ro": {
-        "denumire": "Bonusuri"
+        "denumire": "Rame"
       },
       "ru": {
-        "denumire": "Бонусы"
+        "denumire": "Рамы"
       }
     }
   }
